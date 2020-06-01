@@ -2,13 +2,37 @@
 
 .header {
   &--background {
-    @include bg-image(
-      '../images/background/photo.jpg',
-      cover,
-      no-repeat,
-      center
-    );
+    @media screen and (max-width: 767px) {
+      @include bg-image(
+        '../images/background/photo-small.jpg',
+        cover,
+        no-repeat,
+        top
+      );
+    }
+    @media screen and (min-width: 768px) {
+      @include bg-image(
+        '../images/background/photo.jpg',
+        cover,
+        no-repeat,
+        center
+      );
+    }
   }
+
+  @mixin bg-gradient-image(
+    $grad: '',
+    $path: '',
+    $size: cover,
+    $repeat: no-repeat,
+    $pos: center
+  ) {
+    background: $grad, url($path);
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $pos;
+  }
+
   &__wraper {
     height: 100vh;
     display: flex;
@@ -21,23 +45,21 @@
     @media screen and (min-width: 992px) {
       min-height: 460px;
     }
-    @media screen and (min-width: 1200px) {
-    }
   }
 }
 
 .page-nav {
   display: flex;
   align-items: center;
-
   width: 100%;
   z-index: 100;
-  background-color: rgba($fourth-font-color, 0.7);
   min-width: 320px;
   @media screen and (max-width: 991px) {
+    background-color: rgba($fourth-font-color, 0.95);
     position: fixed;
     top: 0;
     left: 0;
+    padding: 0 15px;
   }
 
   &__box {
