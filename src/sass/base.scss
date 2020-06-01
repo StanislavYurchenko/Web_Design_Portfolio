@@ -1,0 +1,135 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  outline: 1px solid blue;
+}
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
+  margin: -1px;
+  font-size: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.br {
+  display: block;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+.wraper {
+  margin: 0 auto;
+
+  @media screen and (max-width: 575px) {
+    width: 100%;
+    min-width: 320px;
+  }
+  @media screen and (min-width: 576px) {
+    width: 530px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 720px;
+  }
+  @media screen and (min-width: 992px) {
+    width: 940px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 1150px;
+  }
+}
+
+.last-simbol {
+  color: $first-font-color;
+  &--red {
+    color: $first-accent-color;
+  }
+}
+
+.read-more-btn {
+  @extend %button;
+  font-size: 13px;
+  font-family: $first-font-family;
+  color: $first-accent-color;
+  text-transform: uppercase;
+  padding: 8px 0;
+  background: none;
+  text-align: left;
+  min-width: 76px;
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  &__desc {
+    display: inline-block;
+    transition: all 0.3s linear;
+  }
+  &__icon {
+    display: inline-block;
+    fill: $first-accent-color;
+    width: 12px;
+    height: 9px;
+  }
+  &:hover .read-more-btn__desc {
+    margin-right: 10px;
+  }
+}
+
+.main {
+  padding: 50px 0 50px;
+  &__wraper {
+    @media screen and (max-width: 575px) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+// <576px ≥576px ≥768px ≥992px ≥1200px
+
+.social {
+  &__list {
+    @extend %list;
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+
+  &__link {
+    @extend %link;
+    // padding: 8px 0;
+  }
+
+  &__item-icon {
+    @extend %icon;
+    transition: all 0.3s linear;
+    &:hover {
+      fill: $second-font-color;
+    }
+  }
+}
