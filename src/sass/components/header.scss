@@ -80,6 +80,7 @@
       flex-direction: column;
       position: fixed;
       top: -100%;
+      left: 0;
       width: 100%;
       height: 100%;
       margin: auto;
@@ -208,7 +209,7 @@
 }
 
 .burger-menu:checked ~ .page-nav__menu-list {
-  // top: 0px;
+  //  top: 0px;
   transform: translatey(100%);
 }
 
